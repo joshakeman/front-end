@@ -11,3 +11,140 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.game-board {
+  display:flex;
+  flex-direction: column;
+  background: url('./images/board.jpg');
+  width: 1062px;
+  height: 715px;
+}
+
+.row {
+  display: flex;
+}
+
+.box1 {
+  background: url('./images/001Square.jpg');
+  width: 354px;
+  height: 239px;
+  background-size: cover;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box2 {
+  background: url('./images/002Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box3 {
+  background: url('./images/003Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box4 {
+  background: url('./images/004Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box5 {
+  background: url('./images/005Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box6 {
+  background: url('./images/006Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box7 {
+  background: url('./images/007Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box8 {
+  background: url('./images/008Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.box9 {
+  background: url('./images/009Square.jpg');
+  width: 354px;
+  height: 239px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+
+.blurTranslate {
+  filter: none;
+  -webkit-filter: none;
+  visibility:none;
+}
+
