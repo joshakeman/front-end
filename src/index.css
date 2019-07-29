@@ -13,6 +13,17 @@ code {
     monospace;
 }
 
+.body-wrapper {
+  height: 715px;
+  display: flex;
+}
+
+.sidebar {
+  width: 100%;
+  background-color:lightblue;
+  padding: 2rem;
+}
+
 .game-board {
   display:flex;
   flex-direction: column;
@@ -155,3 +166,47 @@ code {
   background-color: lightgray;
 }
 
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 10px;
+  font-size: 1.25rem;
+}
+
+/* Health Bar */
+
+.progress-bar {
+  position: relative;
+  height: 20px;
+  width: 350px;
+  border-radius: 50px;
+  border: 1px solid #333;
+}
+
+.filler {
+  background: #1DA598;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
+}
+
+button {
+  margin-right: 10px;
+  padding: 7px 12px;
+  font-size: 14px;
+  background: #d14836;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  outline: 0;
+}
