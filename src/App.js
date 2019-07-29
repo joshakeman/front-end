@@ -18,8 +18,8 @@ function App() {
         <h2>Adventure Game</h2>
         <ul className="nav-links">
           <li>Home</li>
-          <li>Etc</li>
-          <li>Etc</li>
+          <li>Inventory</li>
+          <li>Logout</li>
 
         </ul>
       </nav>
@@ -52,7 +52,7 @@ function App() {
         <h3> Room Description</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
 
-        <h3> Inventory </h3>
+        <h3> Equipped </h3>
         <ul>
           <li>Sword</li>
           <li>Health Potion</li>
