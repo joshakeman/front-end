@@ -11,7 +11,16 @@ function App() {
 
   return (
     <>
-    <h1>Insert Amazing New Game Here</h1>
+    <div className="header">
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Etc</li>
+          <li>Etc</li>
+
+        </ul>
+      </nav>
+    </div>
     <div className="game-board">
       <div className="row">
 

@@ -1,4 +1,5 @@
 body {
+  padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -145,6 +146,12 @@ code {
 .blurTranslate {
   filter: none;
   -webkit-filter: none;
-  visibility:none;
+  opacity: 0;
+}
+
+.header {
+  height: 75px;
+  width: 100%;
+  background-color: lightgray;
 }
 
