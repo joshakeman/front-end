@@ -1,6 +1,11 @@
 import React from 'react';
 import './App.css';
 
+import sword from './images/sword1.png'
+import shield from './images/shield1.png'
+import potion from './images/potion1.png'
+
+
 import ProgressBarExample from './components/HealthBar'
 
 function App() {
@@ -54,9 +59,13 @@ function App() {
 
         <h3> Equipped </h3>
         <ul>
-          <li>Sword</li>
+          {/* <li>Sword</li>
           <li>Health Potion</li>
-          <li>Shield</li>
+          <li>Shield</li> */}
+          <img src={sword}/>
+          <img src={shield}/>
+          <img src={potion}/>
+
         </ul>
 
         <h3> Enemies </h3>
