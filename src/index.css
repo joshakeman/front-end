@@ -20,8 +20,9 @@ code {
 
 .sidebar {
   width: 100%;
-  background-color:lightblue;
-  padding: 2rem;
+  background: url('./images//parchment.png');
+  background-color: #2b2202;
+  padding: 5rem 3rem;
 }
 
 .game-board {
@@ -163,7 +164,7 @@ code {
 .header {
   height: 75px;
   width: 100%;
-  background-color: lightgray;
+  background: url('./images/navbar.jpg');
 }
 
 .nav-bar{
@@ -171,6 +172,10 @@ code {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+}
+
+.nav-bar h2 {
+  color: white;
 }
 
 .nav-links {
@@ -181,6 +186,7 @@ code {
 .nav-links li {
   margin: 0 10px;
   font-size: 1.25rem;
+  color:white;
 }
 
 /* Health Bar */
