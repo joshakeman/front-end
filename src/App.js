@@ -20,8 +20,8 @@ function App() {
     <>
     <div className="header">
       <nav className="nav-bar">
-        <h2>Adventure Game</h2>
-        <ul className="nav-links">
+        <h2 className="kill-margin">Adventure Game</h2>
+        <ul className="nav-links kill-margin">
           <li>Home</li>
           <li>Inventory</li>
           <li>Logout</li>
@@ -58,7 +58,7 @@ function App() {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
 
         <h3> Equipped </h3>
-        <ul>
+        <ul className="equipped-items">
           {/* <li>Sword</li>
           <li>Health Potion</li>
           <li>Shield</li> */}
