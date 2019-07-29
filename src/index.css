@@ -1,3 +1,7 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Niconne&display=swap');
+
 body {
   padding: 0;
   margin: 0;
@@ -23,6 +27,9 @@ code {
   background: url('./images//parchment.png');
   background-color: #2b2202;
   padding: 5rem 3rem;
+  font-family: 'Niconne', cursive; 
+  font-size: 1.15rem;
+
 }
 
 .game-board {
@@ -172,10 +179,13 @@ code {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  height: 100%;
 }
 
 .nav-bar h2 {
   color: white;
+  font-family: 'Niconne', cursive;
+  font-size: 2rem;
 }
 
 .nav-links {
@@ -187,6 +197,8 @@ code {
   margin: 0 10px;
   font-size: 1.25rem;
   color:white;
+  font-family: 'Niconne', cursive;
+  font-size: 1.8rem;
 }
 
 /* Health Bar */
@@ -215,4 +227,19 @@ button {
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   outline: 0;
+}
+
+.kill-margin {
+  margin: 0;
+}
+
+.equipped-items {
+  display: flex;
+  padding: 0;
+}
+
+.equipped-items img {
+  border: 1px solid black;
+  padding: 0.25rem;
+  margin: 0 6px;
 }
