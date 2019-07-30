@@ -31,37 +31,40 @@ function App() {
     </div>
     <div className="body-wrapper">
       <div className="game-board">
-        <div className="row">
-
-          <div className="box1" onClick={() => clear('box1')}></div>
-          <div className="box2" onClick={() => clear('box2')}></div>
-          <div className="box3" onClick={() => clear('box3')}></div>
+        <div className="left-column">
 
         </div>
-        <div className="row">
+        <div className="right-column">
 
-          <div className="box4" onClick={() => clear('box4')}></div>
-          <div className="box5" onClick={() => clear('box5')}></div>
-          <div className="box6" onClick={() => clear('box6')}></div>
-
-        </div>
-        <div className="row">
-
-          <div className="box7" onClick={() => clear('box7')}></div>
-          <div className="box8" onClick={() => clear('box8')}></div>
-          <div className="box9" onClick={() => clear('box9')}></div>
+          <div className="top-half">
+          
+          </div>
+          <div className="bottom-half">
+            <div className="items">
+              <h2>Equipped Items</h2>
+              <div className="equipped-items">
+                <div className="item-slot">
+                  <img src={sword}/>
+                </div>
+                <div className="item-slot">
+                  <img src={shield}/>                  
+                </div>
+                <div className="item-slot">
+                  <img src={potion}/>                  
+                </div>
+              </div>
+            </div>
+          
+          </div>
 
         </div>
       </div>
-      <div className="sidebar">
+      {/* <div className="sidebar">
         <h3> Room Description</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
 
         <h3> Equipped </h3>
         <ul className="equipped-items">
-          {/* <li>Sword</li>
-          <li>Health Potion</li>
-          <li>Shield</li> */}
           <img src={sword}/>
           <img src={shield}/>
           <img src={potion}/>
@@ -77,7 +80,7 @@ function App() {
         <h3> Health Bar </h3>
         <ProgressBarExample />
 
-      </div>
+      </div> */}
 
     </div>
 
