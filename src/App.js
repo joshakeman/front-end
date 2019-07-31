@@ -16,8 +16,10 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      currentRoom: 'Entrance',
-      lastRoom: 'Entrance'
+      currentRoom: '',
+      roomDescription: '',
+      players: [],
+      errorMessage: ''
     }
   }
 
@@ -40,7 +42,7 @@ class App extends React.Component {
     const fetchData = async () => {
       const result = await axios.post(
        'https://murmuring-earth-14820.herokuapp.com/api/registration/', 
-       { username: "testuser5", password1:"testpassword", password2:"testpassword" }    
+       { username: "testuser6", password1:"testpassword", password2:"testpassword" }    
        )
 
       console.log(result)
@@ -54,7 +56,7 @@ class App extends React.Component {
     const fetchData = async () => {
       const result = await axios.post(
        'https://murmuring-earth-14820.herokuapp.com/api/login/', 
-       { username: "testuser5", password:"testpassword" }    
+       { username: "testuser6", password:"testpassword" }    
        )
 
       console.log(result)
@@ -79,7 +81,9 @@ class App extends React.Component {
 
       console.log(result)
       this.setState({
-        currentRoom: result.data.title
+        currentRoom: result.data.title,
+        roomDescription: result.data.description,
+        players: result.data.players
       })
     };
 
@@ -101,11 +105,13 @@ class App extends React.Component {
           'Authorization': `Token ${key}`
         }   
       }).then(res => {
+        console.log(res)
         this.setState({
           currentRoom: res.data.title,
+          roomDescription: res.data.description,
+          players: res.data.players,
+          errorMessage: res.data.error_msg
         })
-        const nroom = this.state.currentRoom
-
       })
       .catch(err => {
         console.log('whoops')
@@ -161,7 +167,12 @@ class App extends React.Component {
   
             <div className="top-half">
             Current Room: {this.state.currentRoom} <br></br><br></br>
-            Last Room: {this.state.lastRoom} 
+            Room Description: {this.state.roomDescription} <br></br><br></br>
+            Players: {this.state.players.map(player =>
+              <p>{player}</p>
+            )} <br></br><br></br>
+            
+            <strong>{this.state.errorMessage}</strong>
 
             </div>
             <div className="bottom-half">

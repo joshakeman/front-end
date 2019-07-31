@@ -70,7 +70,46 @@ code {
 .Chamber {
   background: url('./images/Rooms/chamber.jpg');
   background-size: cover;
+}
 
+.Obsidian {
+  background: url('./images/Rooms/doorway.jpg');
+  background-size: cover;
+}
+
+.Treasury {
+  background: url('./images/Rooms/treasury.jpg');
+  background-size: cover;
+}
+
+.River {
+  background: url('./images/Rooms/river.jpg');
+  background-size: cover;
+}
+
+.Cave {
+  background: url('./images/Rooms/caves-background-1.jpg');
+  background-size: cover;
+}
+
+.Rapids {
+  background: url('./images/Rooms/river.jpg');
+  background-size: cover;
+}
+
+.Dust {
+  background: url('./images/Rooms/dustDevil.jpg');
+  background-size: cover;
+}
+
+.Sandy {
+  background: url('./images/Rooms/desertHills.jpg');
+  background-size: cover;
+}
+
+.Abandoned {
+  background: url('./images/Rooms/crates.jpg');
+  background-size: cover;
 }
 
 .left-column {
