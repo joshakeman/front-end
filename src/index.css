@@ -33,10 +33,17 @@ code {
 
 .game-board {
   display:flex;
-  background: url('./images/Rooms/entrance.jpg');
   width: 100%;
   padding: 1rem;
   background-size: cover;
+}
+
+.Entrance {
+  background: url('./images/Rooms/entrance.jpg');
+}
+
+.Volcano {
+  background: url('./images/Rooms/volcano.jpg');
 }
 
 .left-column {
