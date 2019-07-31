@@ -25,21 +25,22 @@ class App extends React.Component {
 
   changeRoom = (oldRoom, newRoom) => {
     console.log(oldRoom, newRoom)
-    let background = document.getElementsByClassName(oldRoom)
+    let background = document.getElementsByClassName('game-board')
     console.log(background[0].classList)
-    // background[0].classList.remove(`${oldRoom}`)
+    // console.log(background[0].classList.contains(oldRoom))
+    // console.log(background[0].classList.item(0))
+    // const firstClass = background[0].classList.item(1)
+    background[0].classList.remove(`${oldRoom}`)
+    // // background[0].classList.remove(`${oldRoom}`)
     background[0].classList.add(`${newRoom}`)
-    console.log(background[0].classList)
-
-
-    // console.log(this.state.currentRoom)
+    // console.log(firstClass)
   }
 
   register = () => {
     const fetchData = async () => {
       const result = await axios.post(
        'https://murmuring-earth-14820.herokuapp.com/api/registration/', 
-       { username: "testuser3", password1:"testpassword", password2:"testpassword" }    
+       { username: "testuser5", password1:"testpassword", password2:"testpassword" }    
        )
 
       console.log(result)
@@ -53,7 +54,7 @@ class App extends React.Component {
     const fetchData = async () => {
       const result = await axios.post(
        'https://murmuring-earth-14820.herokuapp.com/api/login/', 
-       { username: "testuser3", password:"testpassword" }    
+       { username: "testuser5", password:"testpassword" }    
        )
 
       console.log(result)
@@ -85,11 +86,8 @@ class App extends React.Component {
     fetchData();
   }
 
-  move = (room, direction) => {
+  move = (direction) => {
     
-    const oldroom = room
-    console.log(oldroom)
-
     const fetchData = () => {
       const key = localStorage.getItem('key')
       axios({
@@ -103,16 +101,11 @@ class App extends React.Component {
           'Authorization': `Token ${key}`
         }   
       }).then(res => {
-        console.log(this.state.currentRoom)
-        console.log(res.data.title)
         this.setState({
           currentRoom: res.data.title,
-          lastRoom: room
         })
-        console.log(this.state.currentRoom)
-      })
-      .then(x => {
-        this.changeRoom(this.state.lastRoom, this.state.currentRoom)
+        const nroom = this.state.currentRoom
+
       })
       .catch(err => {
         console.log('whoops')
@@ -152,15 +145,15 @@ class App extends React.Component {
         </nav>
       </div>
       <div className="body-wrapper">
-        <div className="Entrance game-board">
+        <div className={`game-board ${this.state.currentRoom}`}>
           <div className="left-column">
             <button onClick={this.register}>Register</button>
             <button onClick={this.login}>Login</button>
             <button onClick={this.init}>Init</button>
-            <button onClick={() => this.move(this.state.currentRoom, 'n')}>North</button>
-            <button onClick={() => this.move(this.state.currentRoom, 'w')}>West</button>
-            <button onClick={() => this.move(this.state.currentRoom, 'e')}>East</button>
-            <button onClick={() => this.move(this.state.currentRoom, 's')}>South</button>
+            <button onClick={() => this.move('n')}>North</button>
+            <button onClick={() => this.move('w')}>West</button>
+            <button onClick={() => this.move('e')}>East</button>
+            <button onClick={() => this.move('s')}>South</button>
 
   
           </div>

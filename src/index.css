@@ -35,15 +35,42 @@ code {
   display:flex;
   width: 100%;
   padding: 1rem;
-  background-size: cover;
 }
 
 .Entrance {
   background: url('./images/Rooms/entrance.jpg');
+  background-size: cover;
+
 }
 
 .Volcano {
   background: url('./images/Rooms/volcano.jpg');
+  background-size: cover;
+
+}
+
+.Waterfall {
+  background: url('./images/Rooms/waterfall.jpg');
+  background-size: cover;
+
+}
+
+.Desert {
+  background: url('./images/Rooms/desert.jpg');
+  background-size: cover;
+
+}
+
+.Castle {
+  background: url('./images/Rooms/treasury.jpg');
+  background-size: cover;
+
+}
+
+.Chamber {
+  background: url('./images/Rooms/chamber.jpg');
+  background-size: cover;
+
 }
 
 .left-column {
