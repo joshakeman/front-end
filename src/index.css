@@ -271,7 +271,21 @@ button {
   font-size: 11px;
   text-align: center;
   color: white;
+
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -webkit-transition: all 0.9s ease-in-out;
+	-moz-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	-ms-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
 }
+
+.blurTranslate {
+  filter: none;
+  -webkit-filter: none;
+}
+
 .map-wrapper {
   width: 600px;
   height: 475px;
@@ -287,4 +301,15 @@ button {
   left: 50px;
   font-family: 'Niconne', cursive;
 
+}
+
+.knight {
+  width: 50px;
+  height: 50px;
+  background: url('./images//knight.gif');
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  z-index: 100;
 }
