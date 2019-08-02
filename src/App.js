@@ -139,20 +139,25 @@ class App extends React.Component {
 
   init = () => {
 
-    const fetchData = async () => {
+    const fetchData = () => {
       const key = localStorage.getItem('key')
-      const result = await axios({
+      axios({
         url: 'https://murmuring-earth-14820.herokuapp.com/api/adv/init/',
         method: 'GET',
         headers: {
             'Authorization': `Token ${key}`,
         }   
-      })
+      }).then(result => {
+          this.setState({
+            currentRoom: result.data.title,
+            roomDescription: result.data.description,
+            players: result.data.players
+          })
 
-      this.setState({
-        currentRoom: result.data.title,
-        roomDescription: result.data.description,
-        players: result.data.players
+        this.movePlayer(this.state.currentRoom)
+      })
+      .catch(err => {
+        // Do something
       })
     };
 
