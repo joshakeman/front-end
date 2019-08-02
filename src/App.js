@@ -274,6 +274,11 @@ class App extends React.Component {
       }
   }
 
+  reset = () => {
+    localStorage.removeItem('key')
+    location.reload()
+  }
+
 
   render() {
     return (
@@ -293,9 +298,9 @@ class App extends React.Component {
         <div className={`game-board ${this.state.currentRoom}`}>
           <div className="left-column">
             <div className="buttons-wrapper">
-              <button onClick={this.register}>Register</button>
+              <button onClick={this.reset}>Reset</button>
               <button onClick={this.login}>Login</button>
-              <button onClick={this.init}>Init</button>
+              <button onClick={this.init}>Start New Game</button>
               <button onClick={() => this.move('n')}>North</button>
               <button onClick={() => this.move('w')}>West</button>
               <button onClick={() => this.move('e')}>East</button>
