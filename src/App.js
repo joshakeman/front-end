@@ -9,6 +9,7 @@ import potion from './images/potion1.png'
 
 
 import ProgressBarExample from './components/HealthBar'
+import Map from './components/Map'
 
 class App extends React.Component {
 
@@ -122,19 +123,6 @@ class App extends React.Component {
 
   }
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const result = await axios.post(
-  //      'https://murmuring-earth-14820.herokuapp.com/api/registration/', 
-  //      { username: "testuser1", password1:"testpassword", password2:"testpassword" }    
-  //      )
-
-  //     console.log(result.data)
-  //     setRoom(result.data);
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   render() {
     return (
@@ -153,17 +141,21 @@ class App extends React.Component {
       <div className="body-wrapper">
         <div className={`game-board ${this.state.currentRoom}`}>
           <div className="left-column">
-            <button onClick={this.register}>Register</button>
-            <button onClick={this.login}>Login</button>
-            <button onClick={this.init}>Init</button>
-            <button onClick={() => this.move('n')}>North</button>
-            <button onClick={() => this.move('w')}>West</button>
-            <button onClick={() => this.move('e')}>East</button>
-            <button onClick={() => this.move('s')}>South</button>
+            <div className="buttons-wrapper">
+              <button onClick={this.register}>Register</button>
+              <button onClick={this.login}>Login</button>
+              <button onClick={this.init}>Init</button>
+              <button onClick={() => this.move('n')}>North</button>
+              <button onClick={() => this.move('w')}>West</button>
+              <button onClick={() => this.move('e')}>East</button>
+              <button onClick={() => this.move('s')}>South</button>
+            </div>
 
-  
+            <div className="map-wrapper">
+              <h2 className="map-header kill-margin">Game Map</h2>
+            </div>
           </div>
-          <div className="right-column">
+          {/* <div className="right-column">
   
             <div className="top-half">
             Current Room: {this.state.currentRoom} <br></br><br></br>
@@ -193,11 +185,11 @@ class App extends React.Component {
             
             </div>
   
-          </div>
+          </div> */}
         </div>
-        {/* <div className="sidebar">
-          <h3> Room Description</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
+        <div className="sidebar">
+          <h2>{this.state.currentRoom}</h2>
+          <p>{this.state.roomDescription}</p>
   
           <h3> Equipped </h3>
           <ul className="equipped-items">
@@ -207,18 +199,21 @@ class App extends React.Component {
   
           </ul>
   
-          <h3> Enemies </h3>
-          <ul>
-            <li>Evil Wizard</li>
-          </ul>
+          <h3> Players </h3>
+          {this.state.players.map(player =>
+              <p style={{display: 'inline-block'}}>&nbsp; {player}&nbsp; </p>
+            )}
+          
+          <strong>{this.state.errorMessage}</strong>
   
   
           <h3> Health Bar </h3>
           <ProgressBarExample />
   
-        </div> */}
+        </div>
   
       </div>
+      <Map />
   
       </>
     );
