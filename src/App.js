@@ -63,8 +63,6 @@ class App extends React.Component {
 
   unblur = (unblurRoom) => {
     const roomSquare = document.querySelectorAll(`[data-room~=${unblurRoom}]`);
-    console.log(`[data-room~=${unblurRoom}]`)
-    console.log(roomSquare)
     roomSquare[0].classList.add('blurTranslate')
   }
 
@@ -93,14 +91,12 @@ class App extends React.Component {
 
     for (let i in new_array) {
       if (new_array[i][0] == thisRoom) {
-        console.log(new_array[i][1], new_array[i][2])
         x = new_array[i][1]
         y = new_array[i][2]      
       }
     } 
 
     const player = document.getElementsByClassName('knight')
-    console.log(player)
     player[0].style.left = `${x}px`
     player[0].style.top = `${y}px`
   }
