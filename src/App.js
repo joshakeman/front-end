@@ -11,6 +11,9 @@ import potion from './images/potion1.png'
 import ProgressBarExample from './components/HealthBar'
 import Map from './components/Map'
 
+import rooms from './Rooms'
+
+
 class App extends React.Component {
 
   constructor(props) {
@@ -20,23 +23,98 @@ class App extends React.Component {
       currentRoom: '',
       roomDescription: '',
       players: [],
-      errorMessage: ''
+      errorMessage: '',
+      discoveredRooms: []
     }
   }
 
+  componentDidMount() {
+
+    const fetchData = () => {
+      const key = localStorage.getItem('key')
+      axios({
+        url: 'https://murmuring-earth-14820.herokuapp.com/api/adv/init/',
+        method: 'GET',
+        headers: {
+            'Authorization': `Token ${key}`,
+        }   
+      }).then(result => {
+        this.setState({
+          currentRoom: result.data.title,
+          roomDescription: result.data.description,
+          players: result.data.players
+        })
+
+        this.unblur(this.state.currentRoom)
+        this.movePlayer(this.state.currentRoom)
+
+      }).catch(err => {
+        // Do something
+      })
+
+      
+    };
+
+    fetchData()
+    this.generateRooms()
+    // this.unblur(this.state.currentRoom)
+
+  }
+
+  unblur = (unblurRoom) => {
+    const roomSquare = document.querySelectorAll(`[data-room~=${unblurRoom}]`);
+    console.log(`[data-room~=${unblurRoom}]`)
+    console.log(roomSquare)
+    roomSquare[0].classList.add('blurTranslate')
+  }
+
+  movePlayer = (thisRoom) => {
+
+    const origin_left = 240  
+    const origin_top = 240
+
+    const array = Object.entries(rooms)
+    const new_array = []
+
+    for (let i in array) {
+        const x_coord = array[i][1][0][0]
+        const y_coord = array[i][1][0][1]
+
+        const x_transform = origin_left + x_coord * 100
+        const y_transform = origin_top + -y_coord * 100
+
+        const exits = Object.keys(array[i][1][1])
+
+        new_array.push([array[i][0], x_transform, y_transform, exits])
+    }
+
+    let x = 0
+    let y = 0
+
+    for (let i in new_array) {
+      if (new_array[i][0] == thisRoom) {
+        console.log(new_array[i][1], new_array[i][2])
+        x = new_array[i][1]
+        y = new_array[i][2]      
+      }
+    } 
+
+    const player = document.getElementsByClassName('knight')
+    console.log(player)
+    player[0].style.left = `${x}px`
+    player[0].style.top = `${y}px`
+  }
+
+  discoverRoom = (currentRoom) => {
+
+    if (!this.state.discoveredRooms.includes(currentRoom)) {
+
+      this.setState({
+        discoveredRooms: [...this.state.discoveredRooms, currentRoom]
+      })
 
 
-  changeRoom = (oldRoom, newRoom) => {
-    console.log(oldRoom, newRoom)
-    let background = document.getElementsByClassName('game-board')
-    console.log(background[0].classList)
-    // console.log(background[0].classList.contains(oldRoom))
-    // console.log(background[0].classList.item(0))
-    // const firstClass = background[0].classList.item(1)
-    background[0].classList.remove(`${oldRoom}`)
-    // // background[0].classList.remove(`${oldRoom}`)
-    background[0].classList.add(`${newRoom}`)
-    // console.log(firstClass)
+    }
   }
 
   register = () => {
@@ -45,9 +123,6 @@ class App extends React.Component {
        'https://murmuring-earth-14820.herokuapp.com/api/registration/', 
        { username: "testuser6", password1:"testpassword", password2:"testpassword" }    
        )
-
-      console.log(result)
-      // setRoom(result.data);
     };
 
     fetchData();
@@ -60,8 +135,6 @@ class App extends React.Component {
        { username: "testuser6", password:"testpassword" }    
        )
 
-      console.log(result)
-      // setRoom(result.data);
       localStorage.setItem('key', result.data.key)
     };
 
@@ -80,7 +153,6 @@ class App extends React.Component {
         }   
       })
 
-      console.log(result)
       this.setState({
         currentRoom: result.data.title,
         roomDescription: result.data.description,
@@ -106,21 +178,98 @@ class App extends React.Component {
           'Authorization': `Token ${key}`
         }   
       }).then(res => {
-        console.log(res)
         this.setState({
           currentRoom: res.data.title,
           roomDescription: res.data.description,
           players: res.data.players,
           errorMessage: res.data.error_msg
         })
+        this.unblur(this.state.currentRoom)
+        this.movePlayer(this.state.currentRoom)
+
       })
       .catch(err => {
-        console.log('whoops')
+        /* add error handler */
       })
     };
 
     fetchData()
+  }
 
+  addDiv = (left, top, room, type) => {
+
+    const wrapper = document.getElementsByClassName('map-wrapper')
+    const div = document.createElement('div');
+
+    // console.log(div)
+
+    if (type == 'room') {
+      div.classList.add('room')
+      div.innerText = room
+    }
+    else if (type == 'path') {
+      div.classList.add('box')
+    }
+    
+    div.style.left = `${left}px`
+    div.style.top = `${top}px`
+    div.dataset.room = room
+
+    wrapper[0].append(div)
+  }
+
+  generateRooms = () => {
+      const origin_left = 240  
+      const origin_top = 240
+
+      const array = Object.entries(rooms)
+      const new_array = []
+
+      for (let i in array) {
+          const x_coord = array[i][1][0][0]
+          const y_coord = array[i][1][0][1]
+
+          const x_transform = origin_left + x_coord * 100
+          const y_transform = origin_top + -y_coord * 100
+
+          const exits = Object.keys(array[i][1][1])
+
+          new_array.push([array[i][0], x_transform, y_transform, exits])
+      }
+
+
+      for (let i in new_array) {
+
+          const room_name = new_array[i][0]
+          const left_value = new_array[i][1]
+          const top_value = new_array[i][2]
+          
+          this.addDiv(left_value, top_value, room_name, 'room')
+          if (new_array[i][3].includes('n')) {
+          const path_left = left_value + 25
+          const path_top = top_value - 25
+
+          this.addDiv(path_left, path_top, '', 'path')
+          }
+          if (new_array[i][3].includes('w')) {
+          const path_left = left_value - 25
+          const path_top = top_value + 25
+
+          this.addDiv(path_left, path_top, '', 'path')
+          }
+          if (new_array[i][3].includes('s')) {
+          const path_left = left_value + 25
+          const path_top = top_value + 75
+
+          this.addDiv(path_left, path_top, '', 'path')
+          }
+          if (new_array[i][3].includes('e')) {
+          const path_left = left_value + 75
+          const path_top = top_value + 25
+
+          this.addDiv(path_left, path_top, '', 'path')
+          }
+      }
   }
 
 
@@ -153,6 +302,7 @@ class App extends React.Component {
 
             <div className="map-wrapper">
               <h2 className="map-header kill-margin">Game Map</h2>
+              <div className="knight"></div>
             </div>
           </div>
           {/* <div className="right-column">
@@ -212,9 +362,7 @@ class App extends React.Component {
   
         </div>
   
-      </div>
-      <Map />
-  
+      </div>  
       </>
     );
   }
