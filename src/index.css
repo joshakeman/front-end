@@ -112,11 +112,23 @@ code {
   background-size: cover;
 }
 
+.Stairs {
+  background: url('./images/Rooms/stairs.jpg');
+  background-size: cover;
+}
+
+.Chest {
+  background: url('./images/Rooms/treasury.jpg');
+  background-size: cover;
+}
+
 .left-column {
-  width: 48%;
-  height: 98%;
+  padding: 20px;
   margin: 1%;
-  background-color: rgb(0,0,0,0.5)
+  background-color: rgb(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .right-column {
@@ -231,4 +243,48 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.box {
+  width: 25px;
+  height:25px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: url('./images//Rooms/roomFloor.jpg');
+  left: 0;
+  top: 0;
+}
+
+.room {
+  width: 75px;
+  height: 75px;
+  background: url('./images//Rooms/roomFloor.jpg');
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 11px;
+  text-align: center;
+  color: white;
+}
+.map-wrapper {
+  width: 600px;
+  height: 475px;
+  background: url('./images//mapBackground.png');
+  background-size: cover;
+  position: relative;
+}
+
+.map-header {
+  font-size: 26px;
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  font-family: 'Niconne', cursive;
+
 }
