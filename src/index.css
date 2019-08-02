@@ -62,7 +62,7 @@ code {
 }
 
 .Castle {
-  background: url('./images/Rooms/treasury.jpg');
+  background: url('./images/Rooms/castle.jpg');
   background-size: cover;
 
 }
@@ -118,7 +118,7 @@ code {
 }
 
 .Chest {
-  background: url('./images/Rooms/treasury.jpg');
+  background: url('./images/Rooms/chest.jpg');
   background-size: cover;
 }
 
