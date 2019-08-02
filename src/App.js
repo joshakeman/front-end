@@ -153,7 +153,8 @@ class App extends React.Component {
             roomDescription: result.data.description,
             players: result.data.players
           })
-
+          
+        this.unblur(this.state.currentRoom)
         this.movePlayer(this.state.currentRoom)
       })
       .catch(err => {
