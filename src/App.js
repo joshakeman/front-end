@@ -276,7 +276,7 @@ class App extends React.Component {
 
   reset = () => {
     localStorage.removeItem('key')
-    location.reload()
+    window.location.reload()
   }
 
 
