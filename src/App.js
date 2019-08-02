@@ -117,7 +117,7 @@ class App extends React.Component {
     const fetchData = async () => {
       const result = await axios.post(
        'https://murmuring-earth-14820.herokuapp.com/api/registration/', 
-       { username: "testuser6", password1:"testpassword", password2:"testpassword" }    
+       { username: "newGuy", password1:"testpassword", password2:"testpassword" }    
        )
     };
 
@@ -128,7 +128,7 @@ class App extends React.Component {
     const fetchData = async () => {
       const result = await axios.post(
        'https://murmuring-earth-14820.herokuapp.com/api/login/', 
-       { username: "testuser6", password:"testpassword" }    
+       { username: "newGuy", password:"testpassword" }    
        )
 
       localStorage.setItem('key', result.data.key)
